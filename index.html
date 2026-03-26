@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>James Smiley | ICP Sales Sheet + Messaging Matrix</title>
+<meta name="description" content="A one-page Ideal Client Profile sales sheet and messaging matrix for James Smiley — built to clarify who he serves best, what they need, and how to position offers that convert.">
+<meta property="og:title" content="James Smiley | ICP Sales Sheet + Messaging Matrix">
+<meta property="og:description" content="One-page sales sheet and segment-based messaging matrix for James Smiley's best-fit clients.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #0a0a0a;
+  --accent: #c9a84c;
+  --accent-light: #e8c87a;
+  --accent-dark: #a07830;
+  --text: #ffffff;
+  --text-muted: #b6b6b6;
+  --text-dim: #7a7a7a;
+  --card-bg: #141414;
+  --card-border: #272727;
+  --section-alt: #0f0f0f;
+  --surface: #101010;
+  --success: #87d37c;
+  --nav-height: 78px;
+  --max: 1180px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--primary);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000; height: var(--nav-height);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 6%;
+  transition: background .35s, backdrop-filter .35s, box-shadow .35s;
+}
+nav.scrolled {
+  background: rgba(10,10,10,.94);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(201,168,76,.18);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.45rem; font-weight: 700;
+  color: var(--text); text-decoration: none;
+  letter-spacing: .02em;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex; list-style: none;
+  gap: 2rem; align-items: center;
+}
+.nav-links a {
+  color: var(--text-muted); text-decoration: none;
+  font-size: .82rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--accent); }
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--primary) !important;
+  padding: .68rem 1.3rem;
+  font-weight: 800 !important;
+}
+.hamburger {
+  display: none; flex-direction: column;
+  gap: 5px; cursor: pointer; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 25px; height: 2px;
+  background: var(--text); transition: .3s;
+}
+.mobile-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(10,10,10,.97); z-index: 999;
+  flex-direction: column; align-items: center; justify-content: center;
+  gap: 2rem;
+}
+.mobile-overlay.open { display: flex; }
+.mobile-overlay a {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--text); text-decoration: none;
+}
+.mobile-close {
+  position: absolute; top: 2rem; right: 6%;
+  font-size: 2.5rem; color: var(--text);
+  background: none; border: none; cursor: pointer;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 0 6%; padding-top: var(--nav-height);
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  filter: brightness(.17);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,10,10,.97) 0%, rgba(10,10,10,.80) 50%, rgba(201,168,76,.08) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 880px;
+}
+.hero-eyebrow {
+  display: inline-block; color: var(--accent);
+  font-size: .78rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  padding: .4rem 1rem; margin-bottom: 1.8rem;
+  border: 1px solid rgba(201,168,76,.3);
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.1rem, 7vw, 6.2rem);
+  font-weight: 900; line-height: 1.03;
+  margin-bottom: 1.4rem; letter-spacing: -.02em;
+}
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero-sub {
+  font-size: clamp(1.04rem, 2vw, 1.24rem);
+  color: var(--text-muted); max-width: 700px;
+  margin-bottom: 2.4rem;
+  font-weight: 300; line-height: 1.75;
+}
+.hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary, .btn-ghost {
+  padding: 1rem 2rem;
+  font-weight: 700; font-size: .9rem;
+  letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; display: inline-block;
+  transition: .2s ease;
+}
+.btn-primary {
+  background: var(--accent); color: var(--primary);
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+.btn-ghost {
+  border: 1px solid rgba(255,255,255,.28); color: var(--text);
+}
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero-scroll {
+  position: absolute; bottom: 2.2rem; left: 50%;
+  transform: translateX(-50%); z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
+  color: var(--text-muted); font-size: .7rem;
+  letter-spacing: .18em; text-transform: uppercase;
+}
+.hero-scroll::after {
+  content: ''; width: 1px; height: 44px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.media-bar {
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  padding: 1.6rem 6%;
+}
+.media-bar-inner {
+  max-width: var(--max); margin: 0 auto;
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; justify-content: center;
+}
+.media-label {
+  font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.media-logos {
+  display: flex; flex-wrap: wrap; gap: 1.8rem; justify-content: center;
+}
+.media-logo {
+  color: rgba(255,255,255,.30); font-weight: 700; letter-spacing: .04em;
+}
+
+section { padding: 6rem 6%; }
+.section-inner { max-width: var(--max); margin: 0 auto; }
+.section-eyebrow {
+  display: block; color: var(--accent);
+  font-size: .74rem; font-weight: 700; letter-spacing: .24em; text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4.4vw, 3.5rem);
+  font-weight: 700; line-height: 1.12;
+  margin-bottom: 1rem;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+.section-sub {
+  color: var(--text-muted);
+  font-size: 1.06rem; max-width: 760px; line-height: 1.8;
+}
+
+.intro { background: var(--section-alt); }
+.intro-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+}
+.intro-img-wrap { position: relative; }
+.intro-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.intro-img-border {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 62%; height: 62%; border: 2px solid var(--accent); z-index: -1;
+}
+.intro-text .section-sub { max-width: 100%; margin-bottom: 1.25rem; }
+.intro-quote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.25rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; line-height: 1.5; color: #f3f3f3;
+  margin: 1.7rem 0;
+}
+
+.stats-strip {
+  padding: 2.2rem 6%; background: linear-gradient(90deg, #111 0%, #18130a 100%);
+  border-top: 1px solid rgba(201,168,76,.15);
+  border-bottom: 1px solid rgba(201,168,76,.15);
+}
+.stats-strip .section-inner {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+}
+.stat {
+  text-align: center; padding: 1rem;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif; font-size: 2.4rem; color: var(--accent); font-weight: 900;
+}
+.stat-lbl { color: var(--text-muted); font-size: .92rem; text-transform: uppercase; letter-spacing: .08em; }
+
+.cards-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem;
+  margin-top: 2.2rem;
+}
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 1.5rem;
+}
+.card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.45rem; margin-bottom: .7rem;
+}
+.card p, .card li { color: var(--text-muted); }
+.card ul { padding-left: 1.1rem; margin-top: .7rem; display: grid; gap: .45rem; }
+.card .tag {
+  display: inline-block; margin-bottom: .8rem; padding: .35rem .7rem;
+  border: 1px solid rgba(201,168,76,.25); color: var(--accent);
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .16em;
+}
+
+.segment-section { background: var(--section-alt); }
+.segment-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 2rem;
+}
+.segment-card {
+  background: linear-gradient(180deg, rgba(20,20,20,.96), rgba(14,14,14,.96));
+  border: 1px solid var(--card-border);
+  padding: 1.6rem;
+}
+.segment-card h3 {
+  font-family: 'Playfair Display', serif; font-size: 1.55rem; margin-bottom: .4rem;
+}
+.segment-card .subhead {
+  color: var(--accent); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .9rem;
+}
+.segment-card .mini {
+  display: grid; gap: .9rem; margin-top: 1rem;
+}
+.label {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .14em; color: var(--accent);
+  margin-bottom: .25rem; font-weight: 700;
+}
+.text-muted { color: var(--text-muted); }
+.pill-row {
+  display: flex; flex-wrap: wrap; gap: .55rem; margin-top: .9rem;
+}
+.pill {
+  padding: .45rem .75rem; border: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.02);
+  color: #ddd; font-size: .84rem;
+}
+
+.matrix-wrap {
+  overflow-x: auto; margin-top: 2rem; border: 1px solid var(--card-border);
+}
+.matrix {
+  width: 100%; border-collapse: collapse; min-width: 980px; background: var(--card-bg);
+}
+.matrix th, .matrix td {
+  border: 1px solid var(--card-border); padding: 1rem; vertical-align: top; text-align: left;
+}
+.matrix th {
+  background: #171717; color: var(--accent); font-size: .78rem; text-transform: uppercase; letter-spacing: .12em;
+}
+.matrix td strong { color: #fff; }
+.matrix td { color: var(--text-muted); font-size: .95rem; }
+
+.cta-section {
+  background: radial-gradient(circle at top, rgba(201,168,76,.12), transparent 45%), var(--primary);
+}
+.cta-card {
+  max-width: 900px; margin: 0 auto; text-align: center; padding: 2.2rem;
+  border: 1px solid rgba(201,168,76,.18); background: rgba(20,20,20,.88);
+}
+.cta-card h2 {
+  font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: .8rem;
+}
+.cta-card p { color: var(--text-muted); max-width: 720px; margin: 0 auto 1.5rem; }
+
+.footer-inner {
+  max-width: var(--max); margin: 0 auto; padding: 2rem 6% 3rem;
+}
+.footer-top {
+  display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; padding: 2rem 0;
+  border-top: 1px solid var(--card-border);
+}
+.footer-brand { max-width: 460px; }
+.footer-brand-logo {
+  font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; text-decoration: none;
+}
+.footer-brand-logo span { color: var(--accent); }
+.footer-brand p, .footer-copy, .footer-legal a { color: var(--text-muted); }
+.footer-bottom {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1rem;
+}
+.footer-legal { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.fade-up {
+  opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: .1s; }
+.delay-2 { transition-delay: .2s; }
+.delay-3 { transition-delay: .3s; }
+.delay-4 { transition-delay: .4s; }
+
+@media (max-width: 980px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .intro-grid, .cards-grid, .segment-grid { grid-template-columns: 1fr; }
+  .stats-strip .section-inner { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  section { padding: 4.4rem 6%; }
+  .hero h1 { font-size: 2.65rem; }
+  .stats-strip .section-inner { grid-template-columns: 1fr; }
+  .btn-primary, .btn-ghost { width: 100%; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">James<span>Smiley</span></a>
+  <ul class="nav-links">
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#segments">ICP Segments</a></li>
+    <li><a href="#matrix">Messaging Matrix</a></li>
+    <li><a href="#positioning" class="nav-cta">Sales Sheet</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-overlay" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">&times;</button>
+  <a href="#overview">Overview</a>
+  <a href="#segments">ICP Segments</a>
+  <a href="#matrix">Messaging Matrix</a>
+  <a href="#positioning">Sales Sheet</a>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">◆ James Smiley ICP Sales Sheet + Messaging Matrix</span>
+    <h1>Who James Serves <br><em>Best — And Why They Buy</em></h1>
+    <p class="hero-sub">A one-page strategic asset built to clarify James Smiley’s best-fit client segments, sharpen sales positioning, and align messaging to the pains, buying triggers, and outcomes that actually move premium buyers.</p>
+    <div class="hero-btns">
+      <a href="#positioning" class="btn-primary">View Sales Sheet →</a>
+      <a href="#matrix" class="btn-ghost">See Messaging Matrix</a>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<div class="media-bar">
+  <div class="media-bar-inner">
+    <span class="media-label">Authority Signals</span>
+    <div class="media-logos">
+      <span class="media-logo">571+ Executives Consulted</span>
+      <span class="media-logo">$210M Before 30</span>
+      <span class="media-logo">12,521+ Reps Trained</span>
+      <span class="media-logo">4,783+ Paid Students</span>
+    </div>
+  </div>
+</div>
+
+<section class="intro" id="overview">
+  <div class="section-inner">
+    <div class="intro-grid">
+      <div class="intro-img-wrap fade-up">
+        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=900&q=80" alt="Executive strategy and client positioning" class="intro-img">
+        <div class="intro-img-border"></div>
+      </div>
+      <div class="intro-text">
+        <span class="section-eyebrow">Overview</span>
+        <h2 class="section-title fade-up">This is not a generic audience doc. <em>It is a revenue filter.</em></h2>
+        <p class="section-sub fade-up delay-1">James is strongest with founders, consultants, executives, thought leaders, and high-ticket service businesses that already have real value in the market but need sharper positioning, stronger offers, clearer messaging, and tighter execution to produce more predictable premium revenue.</p>
+        <blockquote class="intro-quote fade-up delay-2">"Authority without conversion is wasted value. Better positioning makes growth simpler, faster, and more profitable."</blockquote>
+        <p class="section-sub fade-up delay-3">The goal of this page is simple: make it obvious who James should target, what those buyers care about, what pain they feel, how they talk, and how the sales message should land for each segment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="section-inner">
+    <div class="stat fade-up"><div class="stat-num">4</div><div class="stat-lbl">Core ICP Segments</div></div>
+    <div class="stat fade-up delay-1"><div class="stat-num">1</div><div class="stat-lbl">Primary Buyer</div></div>
+    <div class="stat fade-up delay-2"><div class="stat-num">5</div><div class="stat-lbl">Problem Categories</div></div>
+    <div class="stat fade-up delay-3"><div class="stat-num">100%</div><div class="stat-lbl">Built for Premium Positioning</div></div>
+  </div>
+</div>
+
+<section id="positioning">
+  <div class="section-inner">
+    <span class="section-eyebrow">One-Page Sales Sheet</span>
+    <h2 class="section-title fade-up">James Smiley’s <em>Best-Fit Buyer</em> at a glance</h2>
+    <p class="section-sub fade-up delay-1">Use this section as the fast sales readout. It captures who James serves, what they want, what is broken, and what makes his positioning distinct.</p>
+
+    <div class="cards-grid">
+      <article class="card fade-up delay-1">
+        <span class="tag">Core Position</span>
+        <h3>High-authority growth strategist</h3>
+        <p>James is best positioned as a strategic advisor for ambitious operators who need stronger positioning, clearer offers, better messaging, and more disciplined execution to unlock premium revenue growth.</p>
+      </article>
+
+      <article class="card fade-up delay-2">
+        <span class="tag">Primary ICP</span>
+        <h3>Founder-operator at a growth ceiling</h3>
+        <p>The best-fit client already has proof of value, real capability, and market traction — but growth still feels too dependent on founder hustle, inconsistent messaging, or weak conversion architecture.</p>
+      </article>
+
+      <article class="card fade-up delay-3">
+        <span class="tag">What They Want</span>
+        <h3>Predictable growth with less friction</h3>
+        <ul>
+          <li>Better quality leads</li>
+          <li>Premium positioning</li>
+          <li>Stronger offers</li>
+          <li>Clearer sales narrative</li>
+          <li>Less founder dependence</li>
+          <li>Tighter execution and accountability</li>
+        </ul>
+      </article>
+
+      <article class="card fade-up delay-4">
+        <span class="tag">What’s Going Wrong</span>
+        <h3>Value exists, but the market experiences friction</h3>
+        <ul>
+          <li>Message is too broad or too generic</li>
+          <li>Offer is not packaged clearly</li>
+          <li>Lead quality is inconsistent</li>
+          <li>Sales depend too much on live explanation</li>
+          <li>Marketing and sales are misaligned</li>
+          <li>Team execution is fragmented</li>
+        </ul>
+      </article>
+
+      <article class="card fade-up delay-1">
+        <span class="tag">Why James Wins</span>
+        <h3>He bridges credibility, sales, and execution</h3>
+        <p>James is not just a branding voice or a motivational coach. He brings real revenue credibility, B2B sales depth, business-growth experience, founder empathy, and an ability to align positioning with actual conversion.</p>
+      </article>
+
+      <article class="card fade-up delay-2">
+        <span class="tag">Best Offer Types</span>
+        <h3>Highest-fit commercial vehicles</h3>
+        <ul>
+          <li>Executive consulting</li>
+          <li>Strategic advisory</li>
+          <li>Offer refinement</li>
+          <li>Positioning and messaging strategy</li>
+          <li>Sales process optimization</li>
+          <li>Growth intensives / workshops / audits</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="segment-section" id="segments">
+  <div class="section-inner">
+    <span class="section-eyebrow">ICP Segments</span>
+    <h2 class="section-title fade-up">The four segments James should <em>prioritize</em></h2>
+    <p class="section-sub fade-up delay-1">These are ordered by strategic fit based on James’s story, authority, revenue background, and strongest transformation pathways.</p>
+
+    <div class="segment-grid">
+      <article class="segment-card fade-up delay-1">
+        <h3>1. Founder-Operator</h3>
+        <div class="subhead">Primary ICP</div>
+        <p class="text-muted">A capable founder with traction, expertise, and market proof — but stuck at a ceiling because growth is still too dependent on them personally.</p>
+        <div class="mini">
+          <div><div class="label">Core pain</div><div class="text-muted">Growth depends on hustle instead of structure.</div></div>
+          <div><div class="label">Buying trigger</div><div class="text-muted">Plateaued revenue, weak lead quality, founder bottleneck, or premium repositioning need.</div></div>
+          <div><div class="label">Desired outcome</div><div class="text-muted">More leverage, better sales clarity, and predictable premium growth.</div></div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Founder-led sales</span>
+          <span class="pill">Offer confusion</span>
+          <span class="pill">Revenue ceiling</span>
+        </div>
+      </article>
+
+      <article class="segment-card fade-up delay-2">
+        <h3>2. Consultant / Coach / Expert</h3>
+        <div class="subhead">Secondary ICP</div>
+        <p class="text-muted">A subject-matter expert with real value and results, but weak market packaging, underdeveloped monetization, or inconsistent conversion from authority into revenue.</p>
+        <div class="mini">
+          <div><div class="label">Core pain</div><div class="text-muted">The market does not fully understand what they do or why it matters now.</div></div>
+          <div><div class="label">Buying trigger</div><div class="text-muted">Strong expertise, poor close rate, unclear niche, or underpriced offer stack.</div></div>
+          <div><div class="label">Desired outcome</div><div class="text-muted">Sharper positioning, stronger offers, and easier premium sales conversations.</div></div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Under-monetized expertise</span>
+          <span class="pill">Premium pricing friction</span>
+          <span class="pill">Offer stack confusion</span>
+        </div>
+      </article>
+
+      <article class="segment-card fade-up delay-3">
+        <h3>3. Executive / Thought Leader</h3>
+        <div class="subhead">Secondary ICP</div>
+        <p class="text-muted">An accomplished public-facing leader with credibility, reputation, and proof — but without a clean commercial architecture that turns authority into consulting, speaking, or premium advisory revenue.</p>
+        <div class="mini">
+          <div><div class="label">Core pain</div><div class="text-muted">Strong reputation, weak funnel.</div></div>
+          <div><div class="label">Buying trigger</div><div class="text-muted">Need to monetize authority with more structure and stronger narrative positioning.</div></div>
+          <div><div class="label">Desired outcome</div><div class="text-muted">A brand and offer ecosystem that converts prestige into premium business.</div></div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Authority monetization</span>
+          <span class="pill">Narrative refinement</span>
+          <span class="pill">Commercial positioning</span>
+        </div>
+      </article>
+
+      <article class="segment-card fade-up delay-4">
+        <h3>4. High-Ticket Service Business</h3>
+        <div class="subhead">Secondary ICP</div>
+        <p class="text-muted">A service business with meaningful deal value and active sales motion, but poor lead quality, weak offer-market alignment, or friction between messaging, sales, and execution.</p>
+        <div class="mini">
+          <div><div class="label">Core pain</div><div class="text-muted">Too much activity is wasted because the funnel is attracting the wrong people or failing to convert the right ones.</div></div>
+          <div><div class="label">Buying trigger</div><div class="text-muted">Lead waste, low conversion, unclear messaging, or sales/marketing misalignment.</div></div>
+          <div><div class="label">Desired outcome</div><div class="text-muted">Better lead quality, cleaner positioning, stronger close performance, and tighter execution.</div></div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">Lead quality issues</span>
+          <span class="pill">Conversion friction</span>
+          <span class="pill">Sales alignment</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="matrix">
+  <div class="section-inner">
+    <span class="section-eyebrow">Messaging Matrix</span>
+    <h2 class="section-title fade-up">How the message should shift <em>by segment</em></h2>
+    <p class="section-sub fade-up delay-1">This matrix translates the ICP into actual positioning language. It clarifies pain, buying triggers, message angle, offer emphasis, and sample copy direction for each segment.</p>
+
+    <div class="matrix-wrap fade-up delay-2">
+      <table class="matrix">
+        <thead>
+          <tr>
+            <th>Segment</th>
+            <th>Core Pain</th>
+            <th>Buying Trigger</th>
+            <th>Message Angle</th>
+            <th>Offer Emphasis</th>
+            <th>Sample Hook</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Founder-Operator</strong><br>Primary ICP</td>
+            <td>Growth is too dependent on the founder. Revenue feels harder than it should.</td>
+            <td>Plateau, burnout, unclear offer, weak lead quality, poor premium conversion.</td>
+            <td>You do not have a talent problem. You have a positioning and leverage problem.</td>
+            <td>Strategic advisory, growth intensive, offer refinement, founder leverage systems.</td>
+            <td>“If revenue depends entirely on you, you do not have leverage yet.”</td>
+          </tr>
+          <tr>
+            <td><strong>Consultant / Coach / Expert</strong><br>Secondary ICP</td>
+            <td>Strong expertise, weak packaging. Too much value is trapped behind live explanation.</td>
+            <td>Underpriced offers, conversion inconsistency, niche confusion, referral dependence.</td>
+            <td>Your expertise should be easier to buy and easier to explain.</td>
+            <td>Positioning strategy, messaging architecture, premium offer design, ascension planning.</td>
+            <td>“When the market is confused, your sales process gets expensive.”</td>
+          </tr>
+          <tr>
+            <td><strong>Executive / Thought Leader</strong><br>Secondary ICP</td>
+            <td>Authority exists, but monetization is fragmented or underbuilt.</td>
+            <td>Need to turn reputation into consulting, speaking, or advisory revenue.</td>
+            <td>Authority without conversion is wasted value.</td>
+            <td>Brand narrative, authority monetization, premium positioning, offer ecosystem strategy.</td>
+            <td>“Your credibility is already there. The commercial architecture is not.”</td>
+          </tr>
+          <tr>
+            <td><strong>High-Ticket Service Business</strong><br>Secondary ICP</td>
+            <td>Leads are coming in, but too many are the wrong fit or too hard to close.</td>
+            <td>Low conversion, wasted spend, sales-team underperformance, funnel friction.</td>
+            <td>Better positioning improves lead quality before the sales call ever starts.</td>
+            <td>Sales process optimization, funnel messaging, offer-market fit refinement, conversion diagnostics.</td>
+            <td>“Better offers and better messaging reduce friction everywhere.”</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="section-inner">
+    <div class="cta-card fade-up">
+      <span class="section-eyebrow">Strategic Summary</span>
+      <h2>James Smiley’s ideal buyer is already credible. <em>They just need sharper architecture.</em></h2>
+      <p>The recurring pattern across every segment is the same: value exists, but the positioning, offer, messaging, or execution layer is creating drag. James is strongest when the buyer has real proof, real ambition, and real upside — but needs a clearer path to premium growth.</p>
+      <div class="hero-btns" style="justify-content:center; margin-top: 1rem;">
+        <a href="#positioning" class="btn-primary">Back to Sales Sheet</a>
+        <a href="#home" class="btn-ghost">Top of Page</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="footer-brand-logo">James<span>Smiley</span></a>
+        <p>One-page ICP sales sheet and messaging matrix built from James Smiley brand research, positioning work, and strategic ICP development inside the OpenClaw workspace.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 James Smiley / Marketing International LLC. Strategic draft page.</p>
+      <div class="footer-legal">
+        <a href="#overview">Overview</a>
+        <a href="#segments">ICP Segments</a>
+        <a href="#matrix">Messaging Matrix</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.add('open');
+});
+document.getElementById('mobileClose').addEventListener('click', () => {
+  document.getElementById('mobileMenu').classList.remove('open');
+});
+document.querySelectorAll('.mobile-overlay a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.remove('open');
+  });
+});
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
